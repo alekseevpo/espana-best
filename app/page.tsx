@@ -8,7 +8,7 @@ export default function Home() {
   const categoryId = process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <main className="max-w-4xl mx-auto px-6 py-16 md:px-8 lg:px-12">
         {/* Header */}
         <header className="mb-16 relative">
