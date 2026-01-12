@@ -1,33 +1,37 @@
 import CommentSection from '@/components/CommentSection';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Footer } from '@/components/Footer';
+import { TableOfContents } from '@/components/TableOfContents';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { getGiscusConfig } from '@/lib/env';
 
 export default function Home() {
   const giscusConfig = getGiscusConfig();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
-      <main className="max-w-4xl mx-auto px-6 py-16 md:px-8 lg:px-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-300">
+      <TableOfContents />
+      <ScrollToTop />
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:px-12 lg:pt-24">
         {/* Header */}
-        <header className="mb-16 relative">
+        <header className="mb-12 sm:mb-16 relative">
           <div className="absolute top-0 right-0">
             <ThemeToggle />
           </div>
-          <h1 className="text-5xl md:text-6xl font-light tracking-tight text-gray-900 dark:text-gray-100 mb-4 pr-14">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 dark:text-gray-100 mb-3 sm:mb-4 pr-12 sm:pr-14">
             Техническое задание
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
             Платформа для покупки/продажи недвижимости в Испании
           </p>
-          <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
+          <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500 dark:text-gray-500">
             Версия: MVP • Дата: {new Date().toLocaleDateString('ru-RU')}
           </div>
         </header>
 
         {/* Общее описание */}
-        <section id="overview" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="overview" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             1. Общее описание проекта
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -53,15 +57,15 @@ export default function Home() {
         </section>
 
         {/* Технический стек */}
-        <section id="tech-stack" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="tech-stack" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             2. Технический стек
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
               2.1 Backend
             </h3>
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mb-6">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 <strong>Рекомендация: FastAPI (Python)</strong>
               </p>
@@ -80,7 +84,7 @@ export default function Home() {
             <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
               2.2 Frontend
             </h3>
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mb-6">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 <strong>Рекомендация: React + Next.js</strong>
               </p>
@@ -98,7 +102,7 @@ export default function Home() {
             <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
               2.3 База данных
             </h3>
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mb-6">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 <strong>Рекомендация: PostgreSQL</strong>
               </p>
@@ -125,8 +129,8 @@ export default function Home() {
         </section>
 
         {/* B2B Платформа */}
-        <section id="b2b-platform" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="b2b-platform" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             3. B2B-платформа для агентств недвижимости
           </h2>
           
@@ -209,7 +213,7 @@ export default function Home() {
               <h4 className="text-xl font-medium text-gray-900 dark:text-gray-100 mt-6 mb-3">
                 Поля объекта (обязательные и опциональные)
               </h4>
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                   <li><strong>Тип недвижимости</strong> (обязательно): новостройка / вторичка / в процессе строительства</li>
                   <li><strong>Цена</strong> (обязательно): числовое значение в евро</li>
@@ -306,7 +310,7 @@ export default function Home() {
                   снижают рейтинг
                 </li>
               </ul>
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mt-4">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 mt-4 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <p className="text-gray-700 dark:text-gray-300">
                   <strong>Важно:</strong> Рейтинг рассчитывается автоматически, без текстовых отзывов. 
                   Формула расчета должна быть прозрачной и настраиваемой администратором
@@ -317,8 +321,8 @@ export default function Home() {
         </section>
 
         {/* B2C Сайт */}
-        <section id="b2c-site" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="b2c-site" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             4. B2C-сайт-каталог недвижимости
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -377,8 +381,8 @@ export default function Home() {
         </section>
 
         {/* Безопасность */}
-        <section id="security" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="security" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             5. Безопасность
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -411,13 +415,13 @@ export default function Home() {
         </section>
 
         {/* Этапы разработки */}
-        <section id="development-stages" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="development-stages" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             6. Этапы разработки (MVP)
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <div className="space-y-6">
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3">
                   Этап 1: Базовая инфраструктура
                 </h3>
@@ -429,7 +433,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3">
                   Этап 2: B2B-платформа (основной функционал)
                 </h3>
@@ -442,7 +446,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3">
                   Этап 3: B2C-сайт
                 </h3>
@@ -455,7 +459,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3">
                   Этап 4: Дополнительный функционал
                 </h3>
@@ -471,8 +475,8 @@ export default function Home() {
         </section>
 
         {/* Дополнительные требования */}
-        <section id="additional" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="additional" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             7. Дополнительные требования и примечания
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -502,12 +506,12 @@ export default function Home() {
         </section>
 
         {/* Оценка разработки */}
-        <section id="estimation" className="mb-20">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6">
+        <section id="estimation" className="mb-12 sm:mb-16 lg:mb-20 scroll-mt-24">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6">
             8. Оценка разработки
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
-            <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-800">
+            <div className="bg-white dark:bg-gray-900/50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm border border-gray-200/50 dark:border-gray-800">
               <h3 className="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-4">
                 Временные рамки
               </h3>
@@ -588,9 +592,9 @@ export default function Home() {
 
       {/* Глобальная секция комментариев в конце документа */}
       {giscusConfig && (
-        <div id="comments" className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12 pb-16">
-          <div className="mb-8">
-            <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-4">
+        <div id="comments" className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-12 sm:pb-16 scroll-mt-24">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
               Комментарии и обратная связь
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
