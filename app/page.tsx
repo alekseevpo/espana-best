@@ -3,6 +3,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { Footer } from '@/components/Footer';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { ContactButtons } from '@/components/ContactButtons';
 import { getGiscusConfig } from '@/lib/env';
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-300">
       <TableOfContents />
       <ScrollToTop />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:px-12 lg:pt-24">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:px-12 lg:pt-24 lg:ml-64">
         {/* Header */}
         <header className="mb-12 sm:mb-16 relative">
           <div className="absolute top-0 right-0">
@@ -597,10 +598,11 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
               Комментарии и обратная связь
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
               Оставьте комментарии или вопросы по любому разделу технического задания. 
               Вы можете ссылаться на конкретные разделы, используя их названия или номера.
             </p>
+            <ContactButtons />
           </div>
           <CommentSection 
             repo={giscusConfig.repo}

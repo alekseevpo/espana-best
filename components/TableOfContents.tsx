@@ -62,12 +62,12 @@ export function TableOfContents() {
       {/* Мобильная кнопка */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-2 shadow-lg transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+        className="lg:hidden fixed bottom-20 left-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
         aria-label="Показать навигацию"
         aria-expanded={isOpen}
       >
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -90,36 +90,77 @@ export function TableOfContents() {
         </svg>
       </button>
 
-      {/* Мобильное меню (overlay) */}
-      {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
       {/* Навигация */}
       <nav
         className={`
-          fixed top-0 left-0 right-0 bg-white/98 dark:bg-gray-900/98 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40
-          lg:sticky lg:top-4 lg:bg-transparent lg:dark:bg-transparent lg:border-0 lg:backdrop-blur-none
-          transition-transform duration-300 ease-in-out
-          ${isOpen ? 'translate-y-0' : '-translate-y-full lg:translate-y-0'}
+          ${isOpen 
+            ? 'fixed inset-0 z-40' 
+            : 'hidden lg:block lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-64 lg:z-30'
+          }
         `}
         aria-label="Навигация по разделам"
       >
-        <div className="max-w-4xl mx-auto px-4 py-3 lg:px-0 lg:py-0">
-          <div className="lg:bg-white/80 dark:lg:bg-gray-900/50 lg:rounded-xl lg:p-4 lg:border lg:border-gray-200/50 dark:lg:border-gray-800 lg:shadow-sm">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 hidden lg:block">
+        {isOpen && (
+          <>
+            {/* Overlay */}
+            <div 
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            />
+            {/* Меню навигации (мобильная версия) */}
+            <div className="relative z-50 h-full overflow-y-auto p-4">
+              <div className="max-w-md mx-auto mt-20 bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-800">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    Содержание
+                  </h3>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                    aria-label="Закрыть навигацию"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <ul className="space-y-1">
+                  {sections.map((section) => (
+                    <li key={section.id}>
+                      <button
+                        onClick={() => scrollToSection(section.id)}
+                        className={`
+                          w-full text-left px-3 py-2 rounded-lg text-sm transition-colors
+                          hover:bg-gray-100 dark:hover:bg-gray-800
+                          ${
+                            activeId === section.id
+                              ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium'
+                              : 'text-gray-700 dark:text-gray-300'
+                          }
+                        `}
+                      >
+                        {section.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </>
+        )}
+        {/* Десктопная версия - фиксированная слева */}
+        {!isOpen && (
+          <div className="lg:bg-white dark:lg:bg-gray-900 lg:border-r lg:border-gray-200 dark:lg:border-gray-800 lg:h-full lg:overflow-y-auto lg:p-6 lg:pt-24">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-4 text-xs uppercase tracking-wider">
               Содержание
             </h3>
-            <ul className="space-y-1 lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto">
+            <ul className="space-y-1">
               {sections.map((section) => (
                 <li key={section.id}>
                   <button
                     onClick={() => scrollToSection(section.id)}
                     className={`
-                      w-full text-left px-3 py-2 rounded-lg text-sm transition-colors
+                      w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors
                       hover:bg-gray-100 dark:hover:bg-gray-800
                       ${
                         activeId === section.id
@@ -134,7 +175,7 @@ export function TableOfContents() {
               ))}
             </ul>
           </div>
-        </div>
+        )}
       </nav>
     </>
   );
