@@ -62,7 +62,7 @@ export function TableOfContents() {
       {/* Мобильная кнопка */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed bottom-20 left-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+        className="lg:hidden fixed bottom-20 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
         aria-label="Показать навигацию"
         aria-expanded={isOpen}
       >
