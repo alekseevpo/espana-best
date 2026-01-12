@@ -17,6 +17,7 @@ const sections: TocItem[] = [
   { id: 'development-stages', title: '6. Этапы разработки', level: 1 },
   { id: 'additional', title: '7. Дополнительные требования и примечания', level: 1 },
   { id: 'estimation', title: '8. Оценка разработки', level: 1 },
+  { id: 'glossary', title: '9. Глоссарий терминов', level: 1 },
 ];
 
 export function TableOfContents() {

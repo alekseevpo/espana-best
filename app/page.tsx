@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { ContactButtons } from '@/components/ContactButtons';
+import { Glossary } from '@/components/Glossary';
 import { getGiscusConfig } from '@/lib/env';
 
 export default function Home() {
@@ -615,6 +616,9 @@ export default function Home() {
           />
         </div>
       )}
+
+      {/* Глоссарий терминов */}
+      <Glossary />
 
       {/* Footer с авторскими правами */}
       <Footer />
