@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 interface CommentSectionProps {
   repo: string;
@@ -10,7 +11,6 @@ interface CommentSectionProps {
   mapping?: 'pathname' | 'url' | 'title' | 'og:title' | 'specific';
   term?: string;
   discussionNumber?: number;
-  theme?: 'light' | 'dark' | 'preferred_color_scheme';
   lang?: string;
 }
 
@@ -22,49 +22,91 @@ export default function CommentSection({
   mapping = 'pathname',
   term = 'Welcome to Giscus!',
   discussionNumber,
-  theme = 'preferred_color_scheme',
   lang = 'ru',
 }: CommentSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
+  const { theme, resolvedTheme } = useTheme();
+  
+  // Определяем тему для Giscus
+  const giscusTheme = resolvedTheme === 'dark' ? 'dark' : 'light';
 
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Удаляем предыдущий скрипт, если он существует
+    if (scriptRef.current && scriptRef.current.parentNode) {
+      scriptRef.current.parentNode.removeChild(scriptRef.current);
+      scriptRef.current = null;
+    }
+
+    // Очищаем контейнер
+    containerRef.current.innerHTML = '';
+
+    // Создаем новый скрипт
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo', repo);
     script.setAttribute('data-repo-id', repoId);
-    script.setAttribute('data-category', category);
+    
     if (categoryId) {
       script.setAttribute('data-category-id', categoryId);
+    } else {
+      script.setAttribute('data-category', category);
     }
+    
     script.setAttribute('data-mapping', mapping);
+    
     if (mapping === 'specific' && discussionNumber) {
       script.setAttribute('data-number', discussionNumber.toString());
     } else if (term) {
       script.setAttribute('data-term', term);
     }
+    
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'bottom');
-    script.setAttribute('data-theme', theme);
+    script.setAttribute('data-theme', giscusTheme);
     script.setAttribute('data-lang', lang);
     script.setAttribute('data-loading', 'lazy');
     script.crossOrigin = 'anonymous';
     script.async = true;
 
     containerRef.current.appendChild(script);
+    scriptRef.current = script;
 
     return () => {
-      if (containerRef.current && containerRef.current.contains(script)) {
-        containerRef.current.removeChild(script);
+      // Очистка при размонтировании
+      if (scriptRef.current && scriptRef.current.parentNode) {
+        scriptRef.current.parentNode.removeChild(scriptRef.current);
+        scriptRef.current = null;
       }
     };
-  }, [repo, repoId, category, categoryId, mapping, term, discussionNumber, theme, lang]);
+  }, [repo, repoId, category, categoryId, mapping, term, discussionNumber, lang, giscusTheme]);
+
+  // Обновляем тему Giscus при изменении темы
+  useEffect(() => {
+    if (!scriptRef.current) return;
+
+    // Отправляем сообщение Giscus для обновления темы
+    const iframe = containerRef.current?.querySelector('iframe');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        {
+          giscus: {
+            setConfig: {
+              theme: giscusTheme,
+            },
+          },
+        },
+        'https://giscus.app'
+      );
+    }
+  }, [giscusTheme]);
 
   return (
-    <div className="mt-16 pt-16 border-t border-gray-200 dark:border-gray-800">
+    <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
       <div ref={containerRef} className="giscus" />
     </div>
   );
