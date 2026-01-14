@@ -10,7 +10,7 @@ const languages: { code: Language; label: string }[] = [
 ];
 
 export function LanguageToggle() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +32,7 @@ export function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
-        aria-label="Выбор языка"
+        aria-label={t('nav.selectLanguage')}
         aria-expanded={isOpen}
       >
         <span>{currentLang.label}</span>

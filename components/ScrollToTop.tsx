@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -36,7 +38,7 @@ export function ScrollToTop() {
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}
         hover:scale-110 active:scale-95
       `}
-      aria-label="Наверх"
+      aria-label={t('nav.scrollToTop')}
     >
       <svg
         className="w-6 h-6"

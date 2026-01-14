@@ -81,7 +81,7 @@ export function TableOfContents() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="lg:hidden fixed bottom-20 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
-        aria-label="Показать навигацию"
+        aria-label={t('nav.showNavigation')}
         aria-expanded={isOpen}
       >
         <svg
@@ -116,7 +116,7 @@ export function TableOfContents() {
             : 'hidden lg:block lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-64 lg:z-30'
           }
         `}
-        aria-label="Навигация по разделам"
+        aria-label={t('nav.sectionNavigation')}
       >
         {isOpen && (
           <>
@@ -135,7 +135,7 @@ export function TableOfContents() {
                   <button
                     onClick={() => setIsOpen(false)}
                     className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                    aria-label="Закрыть навигацию"
+                    aria-label={t('nav.closeNavigation')}
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

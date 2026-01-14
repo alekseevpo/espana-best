@@ -533,6 +533,27 @@ export const translations: Record<Language, Record<string, string>> = {
     'comments.title': 'Комментарии и обратная связь',
     'comments.description': 'Оставьте комментарии или вопросы по любому разделу технического задания. Вы можете ссылаться на конкретные разделы, используя их названия или номера.',
     
+    // Contact buttons
+    'contact.direct': 'Или свяжитесь напрямую:',
+    'contact.whatsapp': 'Связаться через WhatsApp',
+    'contact.telegram': 'Связаться через Telegram',
+    'contact.email': 'Написать на Email',
+    
+    // Navigation
+    'nav.showNavigation': 'Показать навигацию',
+    'nav.closeNavigation': 'Закрыть навигацию',
+    'nav.sectionNavigation': 'Навигация по разделам',
+    'nav.scrollToTop': 'Наверх',
+    'nav.toggleTheme': 'Переключить тему',
+    'nav.selectLanguage': 'Выбор языка',
+    
+    // Footer
+    'footer.copyright': '© {year} Все права защищены. Данное техническое задание является интеллектуальной собственностью и охраняется законом об авторском праве.',
+    'footer.protection': 'Защита авторских прав обеспечивается следующими нормативными актами:',
+    'footer.lawSpain': 'Закон об интеллектуальной собственности Испании (Real Decreto Legislativo 1/1996)',
+    'footer.lawEU': 'Директива ЕС 2001/29/EC об авторском праве в информационном обществе',
+    'footer.warning': 'Любое несанкционированное копирование, распространение или использование данного документа без письменного разрешения правообладателя запрещено и влечет за собой гражданскую и уголовную ответственность в соответствии с действующим законодательством.',
+    
     // Table of Contents
     'toc.title': 'Содержание',
     'toc.section1': '1. Общее описание проекта',
@@ -1098,6 +1119,27 @@ export const translations: Record<Language, Record<string, string>> = {
     'comments.title': 'Comments and Feedback',
     'comments.description': 'Leave comments or questions about any section of the technical specification. You can reference specific sections using their names or numbers.',
     
+    // Contact buttons
+    'contact.direct': 'Or contact directly:',
+    'contact.whatsapp': 'Contact via WhatsApp',
+    'contact.telegram': 'Contact via Telegram',
+    'contact.email': 'Send an Email',
+    
+    // Navigation
+    'nav.showNavigation': 'Show navigation',
+    'nav.closeNavigation': 'Close navigation',
+    'nav.sectionNavigation': 'Section navigation',
+    'nav.scrollToTop': 'Back to top',
+    'nav.toggleTheme': 'Toggle theme',
+    'nav.selectLanguage': 'Select language',
+    
+    // Footer
+    'footer.copyright': '© {year} All rights reserved. This technical specification is intellectual property and is protected by copyright law.',
+    'footer.protection': 'Copyright protection is provided by the following regulations:',
+    'footer.lawSpain': 'Spanish Intellectual Property Law (Real Decreto Legislativo 1/1996)',
+    'footer.lawEU': 'EU Directive 2001/29/EC on copyright in the information society',
+    'footer.warning': 'Any unauthorized copying, distribution, or use of this document without the written permission of the copyright holder is prohibited and entails civil and criminal liability in accordance with applicable law.',
+    
     // Glossary
     'glossary.title': 'Glossary of Terms',
     'glossary.description': 'Brief explanation of technical terms and abbreviations used in the technical specification.',
@@ -1648,6 +1690,27 @@ export const translations: Record<Language, Record<string, string>> = {
     // Comments section
     'comments.title': 'Comentarios y Retroalimentación',
     'comments.description': 'Deje comentarios o preguntas sobre cualquier sección de la especificación técnica. Puede hacer referencia a secciones específicas usando sus nombres o números.',
+    
+    // Contact buttons
+    'contact.direct': 'O contáctenos directamente:',
+    'contact.whatsapp': 'Contactar por WhatsApp',
+    'contact.telegram': 'Contactar por Telegram',
+    'contact.email': 'Enviar un Email',
+    
+    // Navigation
+    'nav.showNavigation': 'Mostrar navegación',
+    'nav.closeNavigation': 'Cerrar navegación',
+    'nav.sectionNavigation': 'Navegación de secciones',
+    'nav.scrollToTop': 'Volver arriba',
+    'nav.toggleTheme': 'Cambiar tema',
+    'nav.selectLanguage': 'Seleccionar idioma',
+    
+    // Footer
+    'footer.copyright': '© {year} Todos los derechos reservados. Esta especificación técnica es propiedad intelectual y está protegida por la ley de derechos de autor.',
+    'footer.protection': 'La protección de los derechos de autor está garantizada por las siguientes normativas:',
+    'footer.lawSpain': 'Ley de Propiedad Intelectual de España (Real Decreto Legislativo 1/1996)',
+    'footer.lawEU': 'Directiva UE 2001/29/CE sobre derechos de autor en la sociedad de la información',
+    'footer.warning': 'Cualquier copia, distribución o uso no autorizado de este documento sin el permiso escrito del titular de los derechos de autor está prohibido y conlleva responsabilidad civil y penal de acuerdo con la legislación vigente.',
     
     // Glossary
     'glossary.title': 'Glosario de Términos',

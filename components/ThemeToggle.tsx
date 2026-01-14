@@ -2,10 +2,12 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -15,7 +17,7 @@ export function ThemeToggle() {
     return (
       <button
         className="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center"
-        aria-label="Переключить тему"
+        aria-label={t('nav.toggleTheme')}
       >
         <svg
           className="w-5 h-5 text-gray-500"
@@ -38,7 +40,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
-      aria-label={theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на тёмную тему'}
+      aria-label={t('nav.toggleTheme')}
     >
       {theme === 'dark' ? (
         <svg

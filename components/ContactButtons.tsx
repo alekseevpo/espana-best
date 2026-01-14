@@ -1,6 +1,10 @@
 'use client';
 
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+
 export function ContactButtons() {
+  const { t } = useLanguage();
+  
   const contacts = {
     whatsapp: {
       number: '+34624682795',
@@ -22,7 +26,7 @@ export function ContactButtons() {
   return (
     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-        Или свяжитесь напрямую:
+        {t('contact.direct')}
       </p>
       <div className="flex flex-wrap gap-3">
         {/* WhatsApp */}
@@ -31,7 +35,7 @@ export function ContactButtons() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow"
-          aria-label={`Связаться через ${contacts.whatsapp.label}`}
+          aria-label={t('contact.whatsapp')}
         >
           <svg
             className="w-5 h-5"
@@ -50,7 +54,7 @@ export function ContactButtons() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow"
-          aria-label={`Связаться через ${contacts.telegram.label}`}
+          aria-label={t('contact.telegram')}
         >
           <svg
             className="w-5 h-5"
@@ -67,7 +71,7 @@ export function ContactButtons() {
         <a
           href={contacts.email.link}
           className="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow"
-          aria-label={`Написать на ${contacts.email.label}`}
+          aria-label={t('contact.email')}
         >
           <svg
             className="w-5 h-5"
