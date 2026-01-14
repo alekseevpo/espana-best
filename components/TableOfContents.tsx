@@ -1,28 +1,32 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface TocItem {
   id: string;
-  title: string;
+  titleKey: string;
   level: number;
 }
 
 const sections: TocItem[] = [
-  { id: 'overview', title: '1. Общее описание проекта', level: 1 },
-  { id: 'tech-stack', title: '2. Технический стек', level: 1 },
-  { id: 'b2b-platform', title: '3. B2B-платформа для агентств недвижимости', level: 1 },
-  { id: 'b2c-site', title: '4. B2C-сайт-каталог недвижимости', level: 1 },
-  { id: 'security', title: '5. Безопасность', level: 1 },
-  { id: 'development-stages', title: '6. Этапы разработки', level: 1 },
-  { id: 'additional', title: '7. Дополнительные требования и примечания', level: 1 },
-  { id: 'estimation', title: '8. Оценка разработки', level: 1 },
-  { id: 'glossary', title: '9. Глоссарий терминов', level: 1 },
+  { id: 'overview', titleKey: 'toc.section1', level: 1 },
+  { id: 'tech-stack', titleKey: 'toc.section2', level: 1 },
+  { id: 'b2b-platform', titleKey: 'toc.section3', level: 1 },
+  { id: 'b2c-site', titleKey: 'toc.section4', level: 1 },
+  { id: 'multilanguage', titleKey: 'toc.section5', level: 1 },
+  { id: 'security', titleKey: 'toc.section6', level: 1 },
+  { id: 'monetization', titleKey: 'toc.section7', level: 1 },
+  { id: 'development-stages', titleKey: 'toc.section8', level: 1 },
+  { id: 'additional', titleKey: 'toc.section9', level: 1 },
+  { id: 'estimation', titleKey: 'toc.section10', level: 1 },
+  { id: 'glossary', titleKey: 'toc.section11', level: 1 },
 ];
 
 export function TableOfContents() {
   const [activeId, setActiveId] = useState<string>('');
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,7 +117,7 @@ export function TableOfContents() {
               <div className="max-w-md mx-auto mt-20 bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-800">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    Содержание
+                    {t('toc.title')}
                   </h3>
                   <button
                     onClick={() => setIsOpen(false)}
@@ -140,7 +144,7 @@ export function TableOfContents() {
                           }
                         `}
                       >
-                        {section.title}
+                        {t(section.titleKey)}
                       </button>
                     </li>
                   ))}
@@ -153,7 +157,7 @@ export function TableOfContents() {
         {!isOpen && (
           <div className="lg:bg-white dark:lg:bg-gray-900 lg:border-r lg:border-gray-200 dark:lg:border-gray-800 lg:h-full lg:overflow-y-auto lg:p-6 lg:pt-24">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-4 text-xs uppercase tracking-wider">
-              Содержание
+              {t('toc.title')}
             </h3>
             <ul className="space-y-1">
               {sections.map((section) => (
@@ -170,7 +174,7 @@ export function TableOfContents() {
                       }
                     `}
                   >
-                    {section.title}
+                    {t(section.titleKey)}
                   </button>
                 </li>
               ))}
