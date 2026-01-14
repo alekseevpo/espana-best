@@ -3,10 +3,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage, Language } from '@/lib/i18n/LanguageContext';
 
-const languages: { code: Language; label: string; flag: string }[] = [
-  { code: 'ru', label: 'RU', flag: '🇷🇺' },
-  { code: 'en', label: 'EN', flag: '🇬🇧' },
-  { code: 'es', label: 'ES', flag: '🇪🇸' },
+const languages: { code: Language; label: string }[] = [
+  { code: 'ru', label: 'RU' },
+  { code: 'en', label: 'EN' },
+  { code: 'es', label: 'ES' },
 ];
 
 export function LanguageToggle() {
@@ -31,11 +31,10 @@ export function LanguageToggle() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-transparent hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
+        className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
         aria-label="Выбор языка"
         aria-expanded={isOpen}
       >
-        <span className="text-base">{currentLang.flag}</span>
         <span>{currentLang.label}</span>
         <svg 
           className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
@@ -62,7 +61,6 @@ export function LanguageToggle() {
                   : 'text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10'
               }`}
             >
-              <span className="text-base">{lang.flag}</span>
               <span className="font-medium">{lang.label}</span>
               {language === lang.code && (
                 <svg className="w-4 h-4 ml-auto text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">

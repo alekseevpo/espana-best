@@ -3,7 +3,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 mt-20 pt-8 pb-8">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
+      <div className="max-w-3xl mx-auto px-6 md:px-8 lg:pr-8">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
           © {currentYear} Все права защищены. Данное техническое задание является интеллектуальной собственностью и охраняется законом об авторском праве.
         </p>

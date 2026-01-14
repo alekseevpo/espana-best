@@ -549,6 +549,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Glossary
     'glossary.title': 'Глоссарий терминов',
+    'glossary.description': 'Краткое объяснение технических терминов и сокращений, используемых в техническом задании.',
   },
   
   en: {
@@ -646,6 +647,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Glossary
     'glossary.title': 'Glossary of Terms',
+    'glossary.description': 'Brief explanation of technical terms and abbreviations used in the technical specification.',
   },
   
   es: {
@@ -743,5 +745,6 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Glossary
     'glossary.title': 'Glosario de Términos',
+    'glossary.description': 'Breve explicación de términos técnicos y abreviaturas utilizadas en la especificación técnica.',
   }
 };

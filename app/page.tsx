@@ -22,33 +22,37 @@ export default function Home() {
         <ThemeToggle />
         <LanguageToggle />
       </div>
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:px-12 lg:pt-24 lg:ml-64">
-        <TechnicalSpecification />
-      </main>
+      
+      {/* Основной контент - центрирован с учетом навигации на десктопе */}
+      <div className="lg:pl-72">
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:pt-24 lg:pr-8">
+          <TechnicalSpecification />
+        </main>
 
-      {/* Глобальная секция комментариев в конце документа */}
-      {giscusConfig && (
-        <div id="comments" className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-12 sm:pb-16 scroll-mt-24 lg:ml-64">
-          <CommentsSection />
-          <ContactButtons />
-          <div className="mt-6">
-            <CommentSection 
-              repo={giscusConfig.repo}
-              repoId={giscusConfig.repoId}
-              mapping="specific"
-              discussionNumber={12}
-              category="Announcements"
-              categoryId={giscusConfig.categoryId}
-            />
+        {/* Глобальная секция комментариев в конце документа */}
+        {giscusConfig && (
+          <div id="comments" className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 scroll-mt-24 lg:pr-8">
+            <CommentsSection />
+            <ContactButtons />
+            <div className="mt-6">
+              <CommentSection 
+                repo={giscusConfig.repo}
+                repoId={giscusConfig.repoId}
+                mapping="specific"
+                discussionNumber={12}
+                category="Announcements"
+                categoryId={giscusConfig.categoryId}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Глоссарий терминов */}
-      <Glossary />
+        {/* Глоссарий терминов */}
+        <Glossary />
 
-      {/* Footer с авторскими правами */}
-      <Footer />
+        {/* Footer с авторскими правами */}
+        <Footer />
+      </div>
     </div>
   );
 }

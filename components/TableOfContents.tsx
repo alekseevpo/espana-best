@@ -28,6 +28,19 @@ export function TableOfContents() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
 
+  // Блокировка скролла при открытом меню
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
