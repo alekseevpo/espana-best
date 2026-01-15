@@ -17,6 +17,7 @@ type Person = {
   bio: { ru: string; en: string; es: string };
   initials: string;
   photoSrc?: string;
+  photoPosition?: string;
   linkedinUrl?: string;
 };
 
@@ -29,6 +30,7 @@ type TeamMember = {
   education?: { ru: string; en: string; es: string };
   bullets: { ru: string[]; en: string[]; es: string[] };
   photoSrc?: string;
+  avatarSize?: 'sm' | 'lg';
 };
 
 const roles: TeamRole[] = [
@@ -98,6 +100,7 @@ const teamByRole: Record<TeamRole['key'], TeamMember[]> = {
       },
       // Put Joel photo here: public/team/joel-grevo.jpeg
       photoSrc: '/team/joel-grevo.jpeg',
+      avatarSize: 'lg',
       bullets: {
         ru: ['Прототипы и user flows', 'Макеты под мобайл/десктоп', 'Компоненты дизайн‑системы'],
         en: ['Prototypes and user flows', 'Mobile/desktop layouts', 'Design system components'],
@@ -234,6 +237,8 @@ const pmLead: Person = {
   initials: 'PM',
   // Put your real photo here: public/team/founder.jpg
   photoSrc: '/team/founder.jpeg',
+  // focus a bit higher to keep face centered for portrait-style photos
+  photoPosition: '50% 18%',
 };
 
 function Avatar({
@@ -241,16 +246,22 @@ function Avatar({
   initials,
   size,
   photoSrc,
+  photoPosition,
 }: {
   alt: string;
   initials: string;
-  size: 'sm' | 'md';
+  size: 'sm' | 'md' | 'lg' | 'xl';
   photoSrc?: string;
+  photoPosition?: string;
 }) {
   const boxClass =
     size === 'md'
       ? 'h-36 w-36 sm:h-40 sm:w-40 rounded-md'
-      : 'h-12 w-12 rounded-sm';
+      : size === 'xl'
+        ? 'h-48 w-48 rounded-sm'
+        : size === 'lg'
+          ? 'h-24 w-24 rounded-sm'
+          : 'h-12 w-12 rounded-sm';
 
   const textClass = size === 'md' ? 'text-lg sm:text-xl' : 'text-sm';
   const [imgSrc, setImgSrc] = useState<string>(photoSrc || '/team-placeholder.svg');
@@ -263,6 +274,7 @@ function Avatar({
         alt={alt}
         fill
         className="object-cover"
+        style={photoPosition ? { objectPosition: photoPosition } : undefined}
         onError={() => setImgSrc('/team-placeholder.svg')}
         unoptimized={imgSrc.endsWith('.svg')}
       />
@@ -494,8 +506,9 @@ export function DevelopersPage() {
               <Avatar
                 alt={pmLead.name[language]}
                 initials={pmLead.initials}
-                size="md"
+                size="xl"
                 photoSrc={pmLead.photoSrc}
+                photoPosition={pmLead.photoPosition}
               />
               <div className="min-w-0">
                 <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-100">
@@ -561,7 +574,7 @@ export function DevelopersPage() {
                         <Avatar
                           alt={m.name[language]}
                           initials={m.initials}
-                          size="sm"
+                          size={m.avatarSize ?? 'sm'}
                           photoSrc={m.photoSrc}
                         />
                         <div className="min-w-0">
