@@ -20,6 +20,17 @@ type Person = {
   linkedinUrl?: string;
 };
 
+type TeamMember = {
+  key: string;
+  initials: string;
+  name: { ru: string; en: string; es: string };
+  title: { ru: string; en: string; es: string };
+  meta?: { ru: string; en: string; es: string };
+  education?: { ru: string; en: string; es: string };
+  bullets: { ru: string[]; en: string[]; es: string[] };
+  photoSrc?: string;
+};
+
 const roles: TeamRole[] = [
   {
     key: 'design',
@@ -68,12 +79,138 @@ const roles: TeamRole[] = [
   },
 ];
 
+const teamByRole: Record<TeamRole['key'], TeamMember[]> = {
+  design: [
+    {
+      key: 'designer-1',
+      initials: 'JG',
+      name: { ru: 'Joel Grevo', en: 'Joel Grevo', es: 'Joel Grevo' },
+      title: { ru: 'UX/UI дизайн', en: 'UX/UI Design', es: 'Diseño UX/UI' },
+      meta: {
+        ru: '35 лет • Ижевск',
+        en: '35 years • Izhevsk',
+        es: '35 años • Izhevsk',
+      },
+      bullets: {
+        ru: ['Прототипы и user flows', 'Макеты под мобайл/десктоп', 'Компоненты дизайн‑системы'],
+        en: ['Prototypes and user flows', 'Mobile/desktop layouts', 'Design system components'],
+        es: ['Prototipos y flujos', 'Diseños móvil/escritorio', 'Componentes de sistema de diseño'],
+      },
+    },
+    {
+      key: 'designer-2',
+      initials: 'DP',
+      name: { ru: 'Daryna Postolaki', en: 'Daryna Postolaki', es: 'Daryna Postolaki' },
+      title: { ru: 'UI и визуал', en: 'UI & Visual', es: 'UI y Visual' },
+      meta: {
+        ru: '27 лет • Ужгород',
+        en: '27 years • Uzhhorod',
+        es: '27 años • Uzhhorod',
+      },
+      education: {
+        ru: 'Ужгородский Национальный Университет',
+        en: 'Uzhhorod National University',
+        es: 'Universidad Nacional de Uzhhorod',
+      },
+      bullets: {
+        ru: ['Типографика и сетки', 'Иконки/иллюстрации', 'Состояния и анимации'],
+        en: ['Typography and grids', 'Icons/illustrations', 'States and micro-animations'],
+        es: ['Tipografía y rejillas', 'Iconos/ilustraciones', 'Estados y micro‑animaciones'],
+      },
+    },
+  ],
+  frontend: [
+    {
+      key: 'fe-1',
+      initials: 'FE',
+      name: { ru: 'Frontend #1', en: 'Frontend #1', es: 'Frontend #1' },
+      title: { ru: 'Next.js / React', en: 'Next.js / React', es: 'Next.js / React' },
+      bullets: {
+        ru: ['Компоненты и UI', 'i18n и темы', 'Оптимизация загрузки'],
+        en: ['Components and UI', 'i18n and themes', 'Loading optimization'],
+        es: ['Componentes y UI', 'i18n y temas', 'Optimización de carga'],
+      },
+    },
+    {
+      key: 'fe-2',
+      initials: 'A11',
+      name: { ru: 'Frontend #2', en: 'Frontend #2', es: 'Frontend #2' },
+      title: { ru: 'Доступность и качество', en: 'Accessibility & Quality', es: 'Accesibilidad y Calidad' },
+      bullets: {
+        ru: ['A11y и семантика', 'Тесты UI', 'Code review и стандарты'],
+        en: ['A11y and semantics', 'UI tests', 'Code review & standards'],
+        es: ['A11y y semántica', 'Tests UI', 'Revisión de código y estándares'],
+      },
+    },
+  ],
+  backend: [
+    {
+      key: 'be-1',
+      initials: 'BE',
+      name: { ru: 'Backend #1', en: 'Backend #1', es: 'Backend #1' },
+      title: { ru: 'API и доменная логика', en: 'API & Domain logic', es: 'API y lógica de dominio' },
+      bullets: {
+        ru: ['FastAPI/REST', 'PostgreSQL схемы', 'RBAC и безопасность'],
+        en: ['FastAPI/REST', 'PostgreSQL schemas', 'RBAC & security'],
+        es: ['FastAPI/REST', 'Esquemas PostgreSQL', 'RBAC y seguridad'],
+      },
+    },
+    {
+      key: 'be-2',
+      initials: 'INT',
+      name: { ru: 'Backend #2', en: 'Backend #2', es: 'Backend #2' },
+      title: { ru: 'Интеграции', en: 'Integrations', es: 'Integraciones' },
+      bullets: {
+        ru: ['CRM/CSV/XML', 'Очереди/таски', 'Логи и мониторинг'],
+        en: ['CRM/CSV/XML', 'Queues/background jobs', 'Logs & monitoring'],
+        es: ['CRM/CSV/XML', 'Colas/tareas', 'Logs y monitoreo'],
+      },
+    },
+  ],
+  qa: [
+    {
+      key: 'qa-1',
+      initials: 'QA',
+      name: { ru: 'Otto Harahonych', en: 'Otto Harahonych', es: 'Otto Harahonych' },
+      title: { ru: 'Ручное тестирование', en: 'Manual QA', es: 'QA manual' },
+      meta: {
+        ru: '37 лет • Ужгород',
+        en: '37 years • Uzhhorod',
+        es: '37 años • Uzhhorod',
+      },
+      education: {
+        ru: 'Ужгородский Торгово‑Экономический Институт',
+        en: 'Uzhhorod Trade and Economic Institute',
+        es: 'Instituto de Comercio y Economía de Uzhhorod',
+      },
+      bullets: {
+        ru: ['Тест‑планы и чек‑листы', 'Регресс', 'Приёмка фич'],
+        en: ['Test plans and checklists', 'Regression', 'Feature acceptance'],
+        es: ['Planes y checklists', 'Regresión', 'Aceptación de features'],
+      },
+    },
+  ],
+  devops: [
+    {
+      key: 'devops-1',
+      initials: 'DO',
+      name: { ru: 'DevOps #1', en: 'DevOps #1', es: 'DevOps #1' },
+      title: { ru: 'CI/CD и окружения', en: 'CI/CD & Environments', es: 'CI/CD y entornos' },
+      bullets: {
+        ru: ['Deploy/rollback', 'Секреты и доступы', 'Наблюдаемость'],
+        en: ['Deploy/rollback', 'Secrets & access', 'Observability'],
+        es: ['Deploy/rollback', 'Secretos y accesos', 'Observabilidad'],
+      },
+    },
+  ],
+};
+
 const pmLead: Person = {
   key: 'pm-lead',
   name: {
-    ru: 'Основатель / Руководитель проекта',
-    en: 'Founder / Project lead',
-    es: 'Fundador / Líder de proyecto',
+    ru: 'Павел Алексеев',
+    en: 'Pavel Alekseev',
+    es: 'Pavel Alekseev',
   },
   role: {
     ru: 'PM & DevOps',
@@ -103,8 +240,8 @@ function Avatar({
 }) {
   const boxClass =
     size === 'md'
-      ? 'h-16 w-16 sm:h-20 sm:w-20 rounded-2xl'
-      : 'h-12 w-12 rounded-xl';
+      ? 'h-36 w-36 sm:h-40 sm:w-40 rounded-md'
+      : 'h-12 w-12 rounded-sm';
 
   const textClass = size === 'md' ? 'text-lg sm:text-xl' : 'text-sm';
   const [imgSrc, setImgSrc] = useState<string>(photoSrc || '/team-placeholder.svg');
@@ -129,8 +266,97 @@ function Avatar({
   );
 }
 
+function RoleIcon({ role }: { role: TeamRole['key'] }) {
+  const common = 'w-6 h-6';
+  const stroke = 'currentColor';
+
+  switch (role) {
+    case 'design':
+      // Pencil / design
+      return (
+        <svg className={common} fill="none" stroke={stroke} viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M16.862 3.487a2.25 2.25 0 013.182 3.182L8.25 18.463 4 19.5l1.037-4.25L16.862 3.487z"
+          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5l4 4" />
+        </svg>
+      );
+    case 'frontend':
+      // Code brackets
+      return (
+        <svg className={common} fill="none" stroke={stroke} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 18l-6-6 6-6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 6l6 6-6 6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 4l-4 16" />
+        </svg>
+      );
+    case 'backend':
+      // Server
+      return (
+        <svg className={common} fill="none" stroke={stroke} viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 14a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4z"
+          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 8h.01M8 16h.01" />
+        </svg>
+      );
+    case 'qa':
+      // Check / shield
+      return (
+        <svg className={common} fill="none" stroke={stroke} viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 3l8 4v6c0 5-3.5 9.4-8 10-4.5-.6-8-5-8-10V7l8-4z"
+          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
+        </svg>
+      );
+    case 'devops':
+      // Cloud (infrastructure / deploy)
+      return (
+        <svg className={common} fill="none" stroke={stroke} viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 18a4 4 0 010-8 5 5 0 019.7-1.7A4 4 0 1117 18H7z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 16v-5m0 0l-2 2m2-2l2 2"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 export function DevelopersPage() {
   const { language, t } = useLanguage();
+
+  const founderTitle =
+    language === 'ru'
+      ? 'Основатель / Руководитель проекта'
+      : language === 'es'
+        ? 'Fundador / Líder de proyecto'
+        : 'Founder / Project lead';
 
   const founder = useMemo(() => {
     const dob = new Date(1985, 7, 29); // 29.08.1985 (month is 0-based)
@@ -199,7 +425,7 @@ export function DevelopersPage() {
       return {
         title: 'Разработчики проекта',
         subtitle: 'Команда, которая проектирует, разрабатывает и поддерживает продукт.',
-        note: 'Покажите эту страницу клиенту: роли, подход и команда — в одном месте.',
+        note: 'Роли, подход и команда — в одном месте.',
         howWeWorkTitle: 'Как мы работаем',
         howWeWorkText:
           'Планируем спринтами, фиксируем требования, ведём прозрачную отчётность и регулярно показываем результат.',
@@ -209,7 +435,7 @@ export function DevelopersPage() {
       return {
         title: 'Desarrolladores del proyecto',
         subtitle: 'El equipo que diseña, desarrolla y mantiene el producto.',
-        note: 'Esta página es para el cliente: roles, enfoque y equipo en un solo lugar.',
+        note: 'Roles, enfoque y equipo — en un solo lugar.',
         howWeWorkTitle: 'Cómo trabajamos',
         howWeWorkText:
           'Planificamos por sprints, fijamos requisitos, reportamos de forma transparente y mostramos avances de forma regular.',
@@ -218,7 +444,7 @@ export function DevelopersPage() {
     return {
       title: 'Project developers',
       subtitle: 'The team that designs, builds, and maintains the product.',
-      note: 'This page is client-ready: roles, approach, and team in one place.',
+      note: 'Roles, approach, and team — in one place.',
       howWeWorkTitle: 'How we work',
       howWeWorkText:
         'We plan in sprints, lock requirements, report transparently, and demo progress regularly.',
@@ -239,11 +465,7 @@ export function DevelopersPage() {
         ? teamIntro.subtitle
         : teamIntro.subtitle;
 
-  const note = language === 'ru'
-      ? teamIntro.note
-      : language === 'es'
-        ? teamIntro.note
-        : teamIntro.note;
+  const note = teamIntro.note;
 
   return (
     <div className="min-h-screen bg-[#fefbf6] dark:bg-black transition-colors duration-300">
@@ -259,7 +481,7 @@ export function DevelopersPage() {
 
           {/* PM Lead (single, top) */}
           <section className="ui-glass-menu rounded-2xl p-5 sm:p-6 mb-6">
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
               <Avatar
                 alt={pmLead.name[language]}
                 initials={pmLead.initials}
@@ -271,41 +493,45 @@ export function DevelopersPage() {
                   {pmLead.name[language]}
                 </h2>
                 <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  {founderTitle}
+                </p>
+                <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
                   {pmLead.role[language]}
                 </p>
                 <p className="mt-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                   {pmLead.bio[language]}
                 </p>
+              </div>
+            </div>
 
-                <div className="mt-4 grid gap-1 text-sm text-gray-700 dark:text-gray-300">
-                  <div>{founder.ageLine}</div>
-                  <div>{founder.cityLine}</div>
-                  <div>{founder.expLine}</div>
-                </div>
+            {/* Details below */}
+            <div className="mt-5 sm:mt-6 border-t border-gray-200/20 dark:border-gray-700/30 pt-4 sm:pt-5">
+              <div className="grid gap-1 text-sm text-gray-700 dark:text-gray-300">
+                <div>{founder.ageLine}</div>
+                <div>{founder.cityLine}</div>
+                <div>{founder.expLine}</div>
+              </div>
 
-                <div className="mt-4">
-                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {founder.educationTitle}
-                  </div>
-                  <ul className="mt-2 list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                    <li>{founder.edu1}</li>
-                    <li>{founder.edu2}</li>
-                  </ul>
+              <div className="mt-4">
+                <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  {founder.educationTitle}
                 </div>
+                <ul className="mt-2 list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                  <li>{founder.edu1}</li>
+                  <li>{founder.edu2}</li>
+                </ul>
               </div>
             </div>
           </section>
 
-          {/* Roles (two columns on desktop) */}
-          <section className="grid gap-4 sm:gap-5 md:grid-cols-2">
+          {/* Roles */}
+          <section className="grid gap-4 sm:gap-5">
             {roles.map((role) => (
               <div key={role.key} className="ui-glass-menu rounded-xl p-4 sm:p-5">
                 <div className="flex items-start gap-3">
-                  <Avatar
-                    alt={role.title[language]}
-                    initials={role.title.en.slice(0, 2).toUpperCase()}
-                    size="sm"
-                  />
+                  <div className="h-12 w-12 rounded-sm bg-white/10 dark:bg-white/5 border border-gray-200/10 dark:border-gray-700/20 flex items-center justify-center text-gray-700 dark:text-gray-200">
+                    <RoleIcon role={role.key} />
+                  </div>
                   <div className="min-w-0">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                       {role.title[language]}
@@ -314,6 +540,47 @@ export function DevelopersPage() {
                       {role.description[language]}
                     </p>
                   </div>
+                </div>
+
+                <div className="mt-4 grid gap-3">
+                  {teamByRole[role.key].map((m) => (
+                    <div
+                      key={m.key}
+                      className="rounded-lg border border-gray-200/10 dark:border-gray-700/20 p-3"
+                    >
+                      <div className="flex items-start gap-3">
+                        <Avatar
+                          alt={m.name[language]}
+                          initials={m.initials}
+                          size="sm"
+                          photoSrc={m.photoSrc}
+                        />
+                        <div className="min-w-0">
+                          <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                            {m.name[language]}
+                          </div>
+                          <div className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
+                            {m.title[language]}
+                          </div>
+                          {m.meta?.[language] && (
+                            <div className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
+                              {m.meta[language]}
+                            </div>
+                          )}
+                          {m.education?.[language] && (
+                            <div className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
+                              {m.education[language]}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <ul className="mt-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside space-y-1">
+                        {m.bullets[language].map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
