@@ -547,6 +547,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.toggleTheme': 'Переключить тему',
     'nav.selectLanguage': 'Выбор языка',
     'nav.developers': 'Разработчики проекта',
+    'nav.back': 'Назад',
     
     // Footer
     'footer.copyright': '© {year} Все права защищены. Данное техническое задание является интеллектуальной собственностью и охраняется законом об авторском праве.',
@@ -1134,6 +1135,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.toggleTheme': 'Toggle theme',
     'nav.selectLanguage': 'Select language',
     'nav.developers': 'Project developers',
+    'nav.back': 'Back',
     
     // Footer
     'footer.copyright': '© {year} All rights reserved. This technical specification is intellectual property and is protected by copyright law.',
@@ -1707,6 +1709,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.toggleTheme': 'Cambiar tema',
     'nav.selectLanguage': 'Seleccionar idioma',
     'nav.developers': 'Desarrolladores del proyecto',
+    'nav.back': 'Volver',
     
     // Footer
     'footer.copyright': '© {year} Todos los derechos reservados. Esta especificación técnica es propiedad intelectual y está protegida por la ley de derechos de autor.',

@@ -1,9 +1,5 @@
 import CommentSection from '@/components/CommentSection';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { LanguageToggle } from '@/components/LanguageToggle';
 import { Footer } from '@/components/Footer';
-import { TableOfContents } from '@/components/TableOfContents';
-import { ScrollToTop } from '@/components/ScrollToTop';
 import { ContactButtons } from '@/components/ContactButtons';
 import { Glossary } from '@/components/Glossary';
 import { TechnicalSpecification } from '@/components/TechnicalSpecification';
@@ -15,17 +11,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#fefbf6] dark:bg-black transition-colors duration-300">
-      <TableOfContents />
-      <ScrollToTop />
-      {/* Переключатели темы и языка - фиксированы вверху справа */}
-      <div className="fixed top-4 right-4 z-50 lg:right-6 flex items-center gap-2">
-        <ThemeToggle />
-        <LanguageToggle />
-      </div>
-      
       {/* Основной контент - центрирован с учетом навигации на десктопе */}
-      <div className="lg:pl-72">
-        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:px-8 lg:pt-24 lg:pr-8">
+      <div className="lg:pl-96">
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-12 sm:pt-28 sm:pb-16 md:px-8 lg:pt-28 lg:pr-8">
           <TechnicalSpecification />
         </main>
 
