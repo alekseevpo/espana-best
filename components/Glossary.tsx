@@ -142,6 +142,62 @@ function getGlossaryTerms(language: Language): GlossaryTerm[] {
         term: 'WebP',
         description: 'Современный формат изображений с высокой степенью сжатия и поддержкой прозрачности.',
       },
+      {
+        term: 'CORS (Cross-Origin Resource Sharing)',
+        description: 'Механизм безопасности браузера, контролирующий доступ к ресурсам с других доменов. Настраивается для B2C сайта.',
+      },
+      {
+        term: 'OpenID Connect',
+        description: 'Протокол аутентификации поверх OAuth 2.0, позволяющий безопасно идентифицировать пользователей.',
+      },
+      {
+        term: 'MFA (Multi-Factor Authentication)',
+        description: 'Многофакторная аутентификация — дополнительная защита через код из SMS, приложения или биометрию.',
+      },
+      {
+        term: 'Multi-tenant',
+        description: 'Архитектура, где одно приложение обслуживает несколько клиентов (агентств) с изоляцией их данных.',
+      },
+      {
+        term: 'RLS (Row-Level Security)',
+        description: 'Безопасность на уровне строк — механизм PostgreSQL для автоматической фильтрации данных по правам доступа.',
+      },
+      {
+        term: 'WAF (Web Application Firewall)',
+        description: 'Веб-брандмауэр — защита приложения от вредоносного трафика на уровне приложения.',
+      },
+      {
+        term: 'CSP (Content Security Policy)',
+        description: 'Политика безопасности контента — защита от XSS через ограничение источников загружаемых ресурсов.',
+      },
+      {
+        term: 'HSTS (HTTP Strict Transport Security)',
+        description: 'Принудительное использование HTTPS — браузер автоматически использует защищенное соединение.',
+      },
+      {
+        term: 'HMAC (Hash-based Message Authentication Code)',
+        description: 'Код аутентификации сообщений — криптографическая подпись для проверки подлинности webhooks и данных.',
+      },
+      {
+        term: 'Webhook',
+        description: 'HTTP-колбэк — автоматическая отправка данных от одного сервиса другому при наступлении события.',
+      },
+      {
+        term: 'LOPD (Ley Orgánica de Protección de Datos)',
+        description: 'Органический закон о защите данных — испанское законодательство о защите персональных данных.',
+      },
+      {
+        term: 'Penetration Testing',
+        description: 'Тестирование на проникновение — проверка безопасности системы путем имитации атак злоумышленников.',
+      },
+      {
+        term: 'TDE (Transparent Data Encryption)',
+        description: 'Прозрачное шифрование данных — автоматическое шифрование базы данных на уровне диска.',
+      },
+      {
+        term: 'S3 / Cloud Storage',
+        description: 'Облачное хранилище файлов (Amazon S3, Google Cloud Storage) — безопасное хранение изображений и документов.',
+      },
     ],
     en: [
       {
@@ -276,6 +332,62 @@ function getGlossaryTerms(language: Language): GlossaryTerm[] {
         term: 'WebP',
         description: 'Modern image format with high compression and transparency support.',
       },
+      {
+        term: 'CORS (Cross-Origin Resource Sharing)',
+        description: 'Browser security mechanism controlling access to resources from other domains. Configured for B2C site.',
+      },
+      {
+        term: 'OpenID Connect',
+        description: 'Authentication protocol built on OAuth 2.0, allowing secure user identification.',
+      },
+      {
+        term: 'MFA (Multi-Factor Authentication)',
+        description: 'Multi-Factor Authentication — additional protection via SMS code, app, or biometrics.',
+      },
+      {
+        term: 'Multi-tenant',
+        description: 'Architecture where one application serves multiple clients (agencies) with isolated data.',
+      },
+      {
+        term: 'RLS (Row-Level Security)',
+        description: 'Row-Level Security — PostgreSQL mechanism for automatic data filtering by access rights.',
+      },
+      {
+        term: 'WAF (Web Application Firewall)',
+        description: 'Web Application Firewall — protection of application from malicious traffic at application level.',
+      },
+      {
+        term: 'CSP (Content Security Policy)',
+        description: 'Content Security Policy — protection against XSS by restricting sources of loaded resources.',
+      },
+      {
+        term: 'HSTS (HTTP Strict Transport Security)',
+        description: 'Forced HTTPS usage — browser automatically uses secure connection.',
+      },
+      {
+        term: 'HMAC (Hash-based Message Authentication Code)',
+        description: 'Hash-based Message Authentication Code — cryptographic signature for verifying webhook and data authenticity.',
+      },
+      {
+        term: 'Webhook',
+        description: 'HTTP callback — automatic data sending from one service to another when an event occurs.',
+      },
+      {
+        term: 'LOPD (Ley Orgánica de Protección de Datos)',
+        description: 'Organic Law on Data Protection — Spanish legislation on personal data protection.',
+      },
+      {
+        term: 'Penetration Testing',
+        description: 'Penetration testing — security testing of system by simulating attacker attacks.',
+      },
+      {
+        term: 'TDE (Transparent Data Encryption)',
+        description: 'Transparent Data Encryption — automatic database encryption at disk level.',
+      },
+      {
+        term: 'S3 / Cloud Storage',
+        description: 'Cloud file storage (Amazon S3, Google Cloud Storage) — secure storage of images and documents.',
+      },
     ],
     es: [
       {
@@ -409,6 +521,62 @@ function getGlossaryTerms(language: Language): GlossaryTerm[] {
       {
         term: 'WebP',
         description: 'Formato de imagen moderno con alta compresión y soporte de transparencia.',
+      },
+      {
+        term: 'CORS (Cross-Origin Resource Sharing)',
+        description: 'Mecanismo de seguridad del navegador que controla el acceso a recursos de otros dominios. Configurado para el sitio B2C.',
+      },
+      {
+        term: 'OpenID Connect',
+        description: 'Protocolo de autenticación construido sobre OAuth 2.0, permitiendo identificación segura de usuarios.',
+      },
+      {
+        term: 'MFA (Multi-Factor Authentication)',
+        description: 'Autenticación Multi-Factor — protección adicional mediante código SMS, aplicación o biometría.',
+      },
+      {
+        term: 'Multi-tenant',
+        description: 'Arquitectura donde una aplicación sirve a múltiples clientes (agencias) con datos aislados.',
+      },
+      {
+        term: 'RLS (Row-Level Security)',
+        description: 'Seguridad a Nivel de Fila — mecanismo de PostgreSQL para filtrado automático de datos por derechos de acceso.',
+      },
+      {
+        term: 'WAF (Web Application Firewall)',
+        description: 'Firewall de Aplicación Web — protección de la aplicación contra tráfico malicioso a nivel de aplicación.',
+      },
+      {
+        term: 'CSP (Content Security Policy)',
+        description: 'Política de Seguridad de Contenido — protección contra XSS mediante restricción de fuentes de recursos cargados.',
+      },
+      {
+        term: 'HSTS (HTTP Strict Transport Security)',
+        description: 'Uso forzado de HTTPS — el navegador usa automáticamente conexión segura.',
+      },
+      {
+        term: 'HMAC (Hash-based Message Authentication Code)',
+        description: 'Código de Autenticación de Mensajes Basado en Hash — firma criptográfica para verificar autenticidad de webhooks y datos.',
+      },
+      {
+        term: 'Webhook',
+        description: 'Callback HTTP — envío automático de datos de un servicio a otro cuando ocurre un evento.',
+      },
+      {
+        term: 'LOPD (Ley Orgánica de Protección de Datos)',
+        description: 'Ley Orgánica de Protección de Datos — legislación española sobre protección de datos personales.',
+      },
+      {
+        term: 'Penetration Testing',
+        description: 'Pruebas de penetración — prueba de seguridad del sistema simulando ataques de atacantes.',
+      },
+      {
+        term: 'TDE (Transparent Data Encryption)',
+        description: 'Cifrado Transparente de Datos — cifrado automático de base de datos a nivel de disco.',
+      },
+      {
+        term: 'S3 / Cloud Storage',
+        description: 'Almacenamiento de archivos en la nube (Amazon S3, Google Cloud Storage) — almacenamiento seguro de imágenes y documentos.',
       },
     ],
   };
