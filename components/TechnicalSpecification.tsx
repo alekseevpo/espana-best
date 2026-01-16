@@ -590,7 +590,8 @@ export function TechnicalSpecification() {
           {t('section6.title')}
         </h2>
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+          {/* Basic Security */}
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
             <li><strong>{t('section6.https')}</strong> {t('section6.httpsDesc')}</li>
             <li><strong>{t('section6.auth')}</strong> {t('section6.authDesc')}</li>
             <li><strong>{t('section6.rbac')}</strong> {t('section6.rbacDesc')}</li>
@@ -601,6 +602,115 @@ export function TechnicalSpecification() {
             <li><strong>{t('section6.rateLimit')}</strong> {t('section6.rateLimitDesc')}</li>
             <li><strong>{t('section6.gdpr')}</strong> {t('section6.gdprDesc')}</li>
             <li><strong>{t('section6.passwords')}</strong> {t('section6.passwordsDesc')}</li>
+          </ul>
+
+          {/* 6.1. API Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionApi')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.apiKeys')}</strong> {t('section6.apiKeysDesc')}</li>
+            <li><strong>{t('section6.oauth')}</strong> {t('section6.oauthDesc')}</li>
+            <li><strong>{t('section6.cors')}</strong> {t('section6.corsDesc')}</li>
+            <li><strong>{t('section6.apiVersioning')}</strong> {t('section6.apiVersioningDesc')}</li>
+          </ul>
+
+          {/* 6.2. Data Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionData')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.encryptionAtRest')}</strong> {t('section6.encryptionAtRestDesc')}</li>
+            <li><strong>{t('section6.encryptionInTransit')}</strong> {t('section6.encryptionInTransitDesc')}</li>
+            <li><strong>{t('section6.backups')}</strong> {t('section6.backupsDesc')}</li>
+            <li><strong>{t('section6.dataRetention')}</strong> {t('section6.dataRetentionDesc')}</li>
+          </ul>
+
+          {/* 6.3. Multi-tenant Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionMultiTenant')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.rls')}</strong> {t('section6.rlsDesc')}</li>
+            <li><strong>{t('section6.tenantIsolation')}</strong> {t('section6.tenantIsolationDesc')}</li>
+            <li><strong>{t('section6.crossTenantLeakage')}</strong> {t('section6.crossTenantLeakageDesc')}</li>
+          </ul>
+
+          {/* 6.4. Advanced Authentication & Authorization */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionAuth')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.mfa')}</strong> {t('section6.mfaDesc')}</li>
+            <li><strong>{t('section6.sessionManagement')}</strong> {t('section6.sessionManagementDesc')}</li>
+            <li><strong>{t('section6.passwordPolicy')}</strong> {t('section6.passwordPolicyDesc')}</li>
+            <li><strong>{t('section6.accountLockout')}</strong> {t('section6.accountLockoutDesc')}</li>
+          </ul>
+
+          {/* 6.5. AI & Content Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionAi')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.aiApiSecurity')}</strong> {t('section6.aiApiSecurityDesc')}</li>
+            <li><strong>{t('section6.contentModeration')}</strong> {t('section6.contentModerationDesc')}</li>
+            <li><strong>{t('section6.aiContentMarking')}</strong> {t('section6.aiContentMarkingDesc')}</li>
+            <li><strong>{t('section6.aiInputSanitization')}</strong> {t('section6.aiInputSanitizationDesc')}</li>
+          </ul>
+
+          {/* 6.6. Infrastructure Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionInfrastructure')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.ddos')}</strong> {t('section6.ddosDesc')}</li>
+            <li><strong>{t('section6.waf')}</strong> {t('section6.wafDesc')}</li>
+            <li><strong>{t('section6.securityHeaders')}</strong> {t('section6.securityHeadersDesc')}</li>
+            <li><strong>{t('section6.vulnerabilityScanning')}</strong> {t('section6.vulnerabilityScanningDesc')}</li>
+          </ul>
+
+          {/* 6.7. Compliance & Auditing */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionCompliance')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.auditLogs')}</strong> {t('section6.auditLogsDesc')}</li>
+            <li><strong>{t('section6.complianceMonitoring')}</strong> {t('section6.complianceMonitoringDesc')}</li>
+            <li><strong>{t('section6.dataBreachNotification')}</strong> {t('section6.dataBreachNotificationDesc')}</li>
+            <li><strong>{t('section6.privacyByDesign')}</strong> {t('section6.privacyByDesignDesc')}</li>
+          </ul>
+
+          {/* 6.8. File Upload Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionFiles')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.fileTypeValidation')}</strong> {t('section6.fileTypeValidationDesc')}</li>
+            <li><strong>{t('section6.fileSizeLimits')}</strong> {t('section6.fileSizeLimitsDesc')}</li>
+            <li><strong>{t('section6.virusScanning')}</strong> {t('section6.virusScanningDesc')}</li>
+            <li><strong>{t('section6.secureFileStorage')}</strong> {t('section6.secureFileStorageDesc')}</li>
+          </ul>
+
+          {/* 6.9. Integration Security */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionIntegrations')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.webhookSecurity')}</strong> {t('section6.webhookSecurityDesc')}</li>
+            <li><strong>{t('section6.importValidation')}</strong> {t('section6.importValidationDesc')}</li>
+            <li><strong>{t('section6.rateLimitPerTenant')}</strong> {t('section6.rateLimitPerTenantDesc')}</li>
+            <li><strong>{t('section6.credentialsRotation')}</strong> {t('section6.credentialsRotationDesc')}</li>
+          </ul>
+
+          {/* 6.10. Monitoring & Incident Response */}
+          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4">
+            {t('section6.subsectionMonitoring')}
+          </h3>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+            <li><strong>{t('section6.securityMonitoring')}</strong> {t('section6.securityMonitoringDesc')}</li>
+            <li><strong>{t('section6.intrusionDetection')}</strong> {t('section6.intrusionDetectionDesc')}</li>
+            <li><strong>{t('section6.incidentResponse')}</strong> {t('section6.incidentResponseDesc')}</li>
+            <li><strong>{t('section6.penetrationTesting')}</strong> {t('section6.penetrationTestingDesc')}</li>
           </ul>
         </div>
       </section>
